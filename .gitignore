@@ -1,3 +1,4 @@
 env/
 .vscode
 .aws/
+**/__pycache__
