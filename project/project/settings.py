@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
+from decouple import config
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -19,11 +20,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'xtc@dikoo_ih-g474^5*nynrmz)9p#awm3-)!o@r9gl@=)_v+i'
+# Secret Key from .env file
+SECRET_KEY = config('DJANGO_KEY')
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# ON_LAMBDA defined in AWS environment variables 
+if 'ON_LAMBDA' in os.environ:
+    DEBUG = False
+else:
+    DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', 'k6l52hu8ue.execute-api.us-east-2.amazonaws.com']
 
