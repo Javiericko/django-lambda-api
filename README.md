@@ -1,1 +1,1 @@
-# django-lambda-api
+# Serverless Django on AWS Lambda
