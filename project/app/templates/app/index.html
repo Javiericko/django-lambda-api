@@ -6,7 +6,7 @@
 <h1>Government Spending</h1>
 <form method="post">
   {% csrf_token %}
-  <button type="submit" name="run_script" class="btn btn-lg btn-secondary">Fetch Data</button>
+  <button type="submit" name="run_script" class="btn btn-lg btn-primary">Fetch Data</button>
 </form>
 <div class="col-xs-12" style="height:5px;"></div>
 <div>{{ source }}</div>
@@ -17,13 +17,14 @@
 </div>
 
 <!-- Datatable -->
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
-<script>$(document).ready( function () {
+<script>
+$(document).ready( function () {
   $('#results-table').DataTable({
                                 "searching":false,
                                 "scrollX":true,
-                                "scrollY": 450,
-                                "lengthMenu": [ 10, 25, 50, 100 ]
+                                "scrollY": 380,
+                                "lengthMenu": [ 10, 25, 50, 100 ],
+                                "order": [[ 3, "asc" ]]
                                 });
                               } );
 </script>
