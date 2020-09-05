@@ -3,16 +3,27 @@
 
 {% block main_content %}
 
-<h1>Data API</h1>
+<h1>Government Spending</h1>
 <form method="post">
   {% csrf_token %}
   <button type="submit" name="run_script" class="btn btn-lg btn-secondary">Fetch Data</button>
-  <div class="col-xs-12" style="height:25px;"></div>
 </form>
+<div class="col-xs-12" style="height:5px;"></div>
+<div>{{ citation }}</div>
 <div>
   {% autoescape off %}
   {{ table }}
   {% endautoescape %}
 </div>
+
+<!-- Datatable -->
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
+<script>$(document).ready( function () {
+  $('#results-table').DataTable({
+                                "searching":false,
+                                "scrollX":true,
+                                });
+} );
+</script>
 
 {% endblock %}
