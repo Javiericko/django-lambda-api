@@ -14,9 +14,9 @@ def index(request):
         import pandas as pd
 
         # Endpoint to fetch data from
-        url = 'https://api.usaspending.gov/api/v2/references/toptier_agencies/'
+        url = "https://api.usaspending.gov/api/v2/references/toptier_agencies/"
+        source = "From: USASpending.gov"
 
-        # Call function
         # Call function to get results from the API
         r = fetch(url)
         results = r["results"]
@@ -27,8 +27,6 @@ def index(request):
         results = pd.DataFrame(results)
 
         comma_format = '{:,}'.format
-        table = results.to_html(index=False)
-
         table = results.to_html(index=False, table_id="results-table", render_links=True,
                                 formatters={
                                     "outlay_amount": comma_format,
@@ -41,6 +39,7 @@ def index(request):
         # Return data on same page
         context = {
         "table":table,
+        "source":source
         }
         return render(request, 'app/index.html', context)
 
