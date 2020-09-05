@@ -42,11 +42,11 @@
     <title>Data Project</title>
   </head>
   <body class="text-center">
-    <div class="col-xs-12" style="height:150px;"></div>
     <h1>Data API</h1>
     <form method="post">
       {% csrf_token %}
       <button type="submit" name="run_script">Fetch Data</button>
+      <div class="col-xs-12" style="height:25px;"></div>
     </form>
     <div>
       {% autoescape off %}
