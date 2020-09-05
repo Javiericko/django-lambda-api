@@ -8,8 +8,8 @@ def index(request):
 
     if request.method == "POST" and "run_script" in request.POST: #using post here to avoid csrf display
         
-        # import function to run
-        from .fetch import fetch
+        # Import function to run
+        from .commands.fetch import fetch
 
         import pandas as pd
 
