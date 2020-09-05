@@ -1,58 +1,18 @@
 <!doctype html>
-<html lang="en">
-  <style type="text/css">
-    body { background: black !important; }
-    h1 { color: white !important; }
-    label { color: white !important; }
-    table {
-            border-collapse: collapse !important;
-            width: 100% !important;
-          }
+{% extends 'app/base.html' %}
 
-          th {
-            text-align: center !important;
-            padding: 8px !important;
-          }
+{% block main_content %}
 
-          td {
-            text-align: left !important;
-            padding: 8px !important;
-          }
+<h1>Data API</h1>
+<form method="post">
+  {% csrf_token %}
+  <button type="submit" name="run_script" class="btn btn-lg btn-secondary">Fetch Data</button>
+  <div class="col-xs-12" style="height:25px;"></div>
+</form>
+<div>
+  {% autoescape off %}
+  {{ table }}
+  {% endautoescape %}
+</div>
 
-          th {
-            background-color: black !important;
-            color: white !important;
-          }
-          td {
-            color: white !important;
-          }
- </style>
-  <head>
-    <script type="module">
-        import { myFunction } from "functions.js";
-    </script>
-
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-    <title>Data Project</title>
-  </head>
-  <body class="text-center">
-    <div class="col-xs-12" style="height:150px;"></div>
-    <h1>Data API</h1>
-    <form method="post">
-      {% csrf_token %}
-      <button type="submit" name="run_script">Fetch Data</button>
-    </form>
-    <div>
-      {% autoescape off %}
-      {{ table }}
-      {% endautoescape %}
-    </div>
-  </body>
-
-</html>
+{% endblock %}

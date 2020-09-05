@@ -1,0 +1,46 @@
+{% load staticfiles %}
+<!doctype html>
+<html lang="en">
+    <style type="text/css">
+        body { background: black !important; }
+        h1 { color: white !important; }
+        label { color: white !important; }
+        table {
+                border-collapse: collapse !important;
+                width: 100% !important;
+              }
+    
+              th {
+                text-align: center !important;
+                padding: 8px !important;
+              }
+    
+              td {
+                text-align: left !important;
+                padding: 8px !important;
+              }
+    
+              th {
+                background-color: black !important;
+                color: white !important;
+              }
+              td {
+                color: white !important;
+              }
+     </style>
+    <head>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+    <title>Data Project</title>
+
+    </head>
+
+    <body class="text-center">
+
+    {% block main_content %}
+    {% endblock %}
+        
+    </body>
+</html>
