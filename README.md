@@ -33,4 +33,6 @@ $ python manage.py runserver
 
 ### Open your local app
 
+```bash
 Available at http://127.0.0.1:8000/
+```
