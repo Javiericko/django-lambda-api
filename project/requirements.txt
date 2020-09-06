@@ -15,9 +15,11 @@ hjson==3.0.1
 idna==2.10
 importlib-metadata==1.7.0
 isort==5.5.1
+Jinja2==2.11.2
 jmespath==0.10.0
 kappa==0.6.0
 lazy-object-proxy==1.4.3
+MarkupSafe==1.1.1
 mccabe==0.6.1
 numpy==1.19.1
 pandas==1.1.1
