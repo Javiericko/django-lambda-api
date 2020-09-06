@@ -21,7 +21,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # Secret Key from .env file
-SECRET_KEY = config('DJANGO_KEY')
+if 'ON_LAMBDA' in os.environ:
+    SECRET_KEY = config('DJANGO_KEY')
+else:
+    SECRET_KEY = 'g85pna-_xj^ikw(#q@7%%yb+oazwdv$34(^42%#sx($&_h@zuf'
 
 # ON_LAMBDA defined in AWS environment variables 
 if 'ON_LAMBDA' in os.environ:
