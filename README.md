@@ -23,16 +23,7 @@ $ cd project
 
 # Install requirements
 $ pip install -r requirements.txt
-```
 
-### Setup environment variable
-Now, you will need to set the Django Secret Key for the app to run. In your text editor:
-* You can generate your own 50 character key yourself or on a site like [this](https://miniwebtool.com/django-secret-key-generator/).
-* Open the file ".env.example" under project/project.
-* Replace the XXXXXXXX placeholder for your generated key. ->Make sure to keep the quotation marks.<-
-* Rename ".env.example" to ".env".
-
-### Run the app
-```bash
+# Run the app
 $ python manage.py runserver
 ```
