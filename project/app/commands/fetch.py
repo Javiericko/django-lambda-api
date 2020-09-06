@@ -21,9 +21,8 @@ def fetch():
 
     ## Get the names of the columns from first nested dictionary and format them
     keys = results[0].keys()
-    print(keys)
     columns = [i.replace('_', ' ').title() for i in keys]
-    print(columns)
+    
     # Turn results into a DataFrame and then into formatted HTML
     ## Formatting is applied per column instead of globally to
     ## retain format of numeric ID column
