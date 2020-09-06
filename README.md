@@ -30,3 +30,7 @@ $ pip install -r requirements.txt
 # Run the app
 $ python manage.py runserver
 ```
+
+### Open your local app
+
+Available at http://127.0.0.1:8000/
