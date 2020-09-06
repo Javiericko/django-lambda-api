@@ -6,6 +6,9 @@ url = "https://api.usaspending.gov/api/v2/references/toptier_agencies/"
 source = "From: USASpending.gov"
 
 def fetch():
+    """Get call to given API endpoint. 
+    Returns an HTML table with formatted column names and numeric values."""
+    
     r = requests.get(url).json()
 
     # Reponse is a single key dictionary with a list of nested dictionaries.
