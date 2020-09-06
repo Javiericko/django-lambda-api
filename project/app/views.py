@@ -11,35 +11,8 @@ def index(request):
         # Import function to run
         from .commands.fetch import fetch
 
-        import pandas as pd
-
-        # Endpoint to fetch data from
-        url = "https://api.usaspending.gov/api/v2/references/toptier_agencies/"
-        source = "From: USASpending.gov"
-
         # Call function to get results from the API
-        r = fetch(url)
-        results = r["results"]
-        values = [d.values() for d in results]
-
-        # Get the names of the columns and format them
-        keys = results[0].keys()
-        columns = [i.replace('_', ' ').title() for i in keys]
-
-        # Turn results into a DataFrame and then into formatted HTML
-        ## Formatting is applied per column instead of globally to
-        ## retain format of numeric ID column
-        results = pd.DataFrame(values, columns=columns)
-
-        comma_format = '{:,}'.format
-        table = results.to_html(index=False, table_id="results-table", render_links=True, classes="table table-striped table-bordered",
-                                formatters={
-                                    "Outlay Amount": comma_format,
-                                    "Obligated Amount": comma_format,
-                                    "Budget Authority Amount": comma_format,
-                                    "Current Total Budget Authority Amount": comma_format,
-                                    "Percentage Of Total Budget Authority": '{:,.2e}'.format
-                                })
+        source, table = fetch()
 
         # Return data on same page
         context = {
