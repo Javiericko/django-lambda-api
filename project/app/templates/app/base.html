@@ -1,7 +1,28 @@
 <!doctype html>
 <html lang="en">
     <style>
-        table.dataTable thead th { white-space: nowrap
+        body {
+            overflow-x: hidden;
+        }
+        table.dataTable {
+            table-layout: fixed;
+            width: 100%;
+            margin: 20px auto;
+        }
+        table.dataTable thead th { 
+            white-space: nowrap;         
+        }
+        #results-table_paginate {
+            margin-top: 0.425em;
+            margin-right: 20px;
+        }
+        #results-table_length {
+            text-align: left;
+            margin-left: 20px;
+        }
+        #results-table_info {
+            text-align: left;
+            margin-left: 20px;
         }
     </style>
     <head>
