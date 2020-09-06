@@ -20,20 +20,25 @@ def index(request):
         # Call function to get results from the API
         r = fetch(url)
         results = r["results"]
+        values = [d.values() for d in results]
+
+        # Get the names of the columns and format them
+        keys = results[0].keys()
+        columns = [i.replace('_', ' ').title() for i in keys]
 
         # Turn results into a DataFrame and then into formatted HTML
         ## Formatting is applied per column instead of globally to
         ## retain format of numeric ID column
-        results = pd.DataFrame(results)
+        results = pd.DataFrame(values, columns=columns)
 
         comma_format = '{:,}'.format
-        table = results.to_html(index=False, table_id="results-table", render_links=True,
+        table = results.to_html(index=False, table_id="results-table", render_links=True, classes="table table-striped table-bordered",
                                 formatters={
-                                    "outlay_amount": comma_format,
-                                    "obligated_amount": comma_format,
-                                    "budget_authority_amount": comma_format,
-                                    "current_total_budget_authority_amount": comma_format,
-                                    "percentage_of_total_budget_authority": '{:,.2e}'.format
+                                    "Outlay Amount": comma_format,
+                                    "Obligated Amount": comma_format,
+                                    "Budget Authority Amount": comma_format,
+                                    "Current Total Budget Authority Amount": comma_format,
+                                    "Percentage Of Total Budget Authority": '{:,.2e}'.format
                                 })
 
         # Return data on same page
