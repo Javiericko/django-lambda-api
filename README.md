@@ -11,10 +11,10 @@ This is the future!
 To clone and run this application, you'll need [Git](https://git-scm.com), [Pip](https://pip.pypa.io/), and [venv](https://docs.python.org/3/library/venv.html) (to make your own serverless deployments on AWS Lambda) installed on your computer. From your command line:
 
 ```bash
-# Clone this repository
+# Clone this repository and cd into it
 $ git clone https://github.com/Javiericko/django-lambda-api.git
 
-# Create and activate virtual environment with pythonn 3.6 to install requirements
+# Create and activate virtual environment with python 3.6 to install requirements
 $ python3.6 -m venv env
 $ source env/bin/activate
 
